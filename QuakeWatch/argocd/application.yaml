@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Lirontal1/QuakeWatch.git
+    repoURL: https://github.com/Lirontal1/devops-course.git
     targetRevision: main
-    path: helm
+    path: QuakeWatch/helm
   destination:
     server: https://kubernetes.default.svc
     namespace: default
