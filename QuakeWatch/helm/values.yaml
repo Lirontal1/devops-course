@@ -1,6 +1,6 @@
 # Default values for QuakeWatch Helm chart
 
-replicaCount: 3
+replicaCount: 5
 
 image:
   repository: liron29/quakewatch
