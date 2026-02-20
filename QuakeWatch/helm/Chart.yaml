@@ -1,0 +1,13 @@
+apiVersion: v2
+name: quakewatch
+description: A Helm chart for QuakeWatch - Real-time earthquake monitoring application
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - quakewatch
+  - earthquake
+  - monitoring
+  - flask
+maintainers:
+  - name: liron29

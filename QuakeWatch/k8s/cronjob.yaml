@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: quakewatch-health-check
+spec:
+  schedule: "*/5 * * * *"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: health-checker
+            image: curlimages/curl:latest
+            args:
+            - /bin/sh
+            - -c
+            - |
+              echo "Checking QuakeWatch service health at $(date)"
+              if curl -f -s http://quakewatch-service/ > /dev/null; then
+                echo "SUCCESS: QuakeWatch service is up and running"
+                exit 0
+              else
+                echo "FAILURE: QuakeWatch service is not responding"
+                exit 1
+              fi
+          restartPolicy: OnFailure
